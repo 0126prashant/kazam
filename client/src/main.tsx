@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import App from './App';
 import './index.css';
+import { createRoot } from 'react-dom/client';
 
 // Add error boundary
 class ErrorBoundary extends React.Component<
@@ -53,12 +53,15 @@ if (!rootElement) {
   document.body.appendChild(root);
 }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = createRoot(rootElement!);
+
+root.render(
   <React.StrictMode>
-    <ErrorBoundary>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ErrorBoundary>
         <App />
-      </Provider>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </Provider>
   </React.StrictMode>
 );
+

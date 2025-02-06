@@ -1,18 +1,21 @@
 {
   "compilerOptions": {
+    /* Specify ECMAScript target version */
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    /* Module and resolution */
+    "module": "ESNext",
+    "moduleResolution": "node", // Changed to "node" for better compatibility
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx", // Use React's JSX transform
+
+    /* Emit and build settings */
+    "noEmit": false, // Changed to false to allow emitting JavaScript files
+    "outDir": "./dist", // Specify output directory for compiled files
 
     /* Linting */
     "strict": true,
@@ -26,8 +29,7 @@
       "@/*": ["src/*"]
     }
   },
-  "references": [
-    { "path": "./tsconfig.node.json" },
-    { "path": "./tsconfig.app.json" }
-  ]
+  "include": ["src"], // Include source files for compilation
+  "exclude": ["node_modules", "dist"], // Exclude built files and dependencies
+  "references": [] // Remove references unless you are using project references
 }

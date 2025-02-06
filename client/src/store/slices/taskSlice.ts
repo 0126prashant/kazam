@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { config } from '../../config/env';
+import axios from 'axios';
 
 
 export interface Task {

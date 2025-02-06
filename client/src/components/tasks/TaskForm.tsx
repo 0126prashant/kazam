@@ -124,7 +124,7 @@ const TaskForm = ({ task, onClose, onSuccess }: TaskFormProps) => {
             <select
               id="status"
               value={status}
-              onChange={(e) => setStatus(e.target.value)}
+              onChange={(e) => setStatus(e.target.value as 'pending' | 'completed')}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
             >
               <option value="pending">Pending</option>
